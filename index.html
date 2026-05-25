@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Heyyoo Saumya ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0f172a;
+overflow:hidden;
+color:white;
+}
+
+.page{
+width:100%;
+height:100vh;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+position:absolute;
+top:0;
+left:0;
+overflow:hidden;
+animation:fade 1s ease;
+}
+
+.active{
+display:flex;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:scale(1.02);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.bg{
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:
+radial-gradient(circle at top,#7f1d1d 0%,transparent 30%),
+radial-gradient(circle at bottom,#1e3a8a 0%,transparent 35%),
+#0f172a;
+z-index:-2;
+}
+
+.floating{
+position:absolute;
+font-size:30px;
+animation:float 10s linear infinite;
+opacity:0.7;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh) rotate(0deg);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+h1{
+font-family:'Caveat',cursive;
+font-size:60px;
+margin-bottom:10px;
+text-align:center;
+}
+
+.subtitle{
+font-size:18px;
+opacity:0.85;
+text-align:center;
+max-width:500px;
+line-height:1.6;
+}
+
+.pass-box{
+margin-top:30px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+#display{
+width:220px;
+height:60px;
+background:rgba(255,255,255,0.08);
+border:none;
+border-radius:15px;
+font-size:30px;
+color:white;
+text-align:center;
+margin-bottom:20px;
+letter-spacing:8px;
+}
+
+.numpad{
+display:grid;
+grid-template-columns:repeat(3,70px);
+gap:12px;
+justify-content:center;
+}
+
+.num{
+height:65px;
+border:none;
+border-radius:18px;
+font-size:22px;
+background:#ffffff15;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.num:hover{
+transform:scale(1.08);
+background:#dc2626;
+}
+
+.enter{
+grid-column:span 3;
+background:#dc2626;
+}
+
+.hint{
+margin-top:18px;
+font-size:15px;
+opacity:0.8;
+text-align:center;
+}
+
+.glass{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(14px);
+padding:35px;
+border-radius:30px;
+text-align:center;
+border:1px solid rgba(255,255,255,0.1);
+max-width:700px;
+}
+
+.prank{
+font-size:50px;
+margin-bottom:20px;
+font-family:'Caveat',cursive;
+}
+
+.red{
+color:#ff4d4d;
+}
+
+.green{
+color:#8aff8a;
+}
+
+.choice{
+margin-top:35px;
+display:flex;
+gap:25px;
+}
+
+.btn{
+padding:14px 30px;
+border:none;
+border-radius:40px;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+font-weight:600;
+}
+
+.yes{
+background:#dc2626;
+color:white;
+}
+
+.no{
+background:white;
+color:black;
+position:relative;
+}
+
+.small{
+margin-top:20px;
+font-size:14px;
+opacity:0.7;
+}
+
+.garden{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+max-width:1000px;
+padding-top:30px;
+}
+
+.flower{
+font-size:70px;
+cursor:pointer;
+transition:0.4s;
+}
+
+.flower:hover{
+transform:scale(1.2) rotate(8deg);
+}
+
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#111827;
+padding:30px;
+border-radius:25px;
+max-width:400px;
+text-align:center;
+display:none;
+z-index:99;
+border:1px solid #ffffff25;
+animation:fade 0.5s ease;
+}
+
+.popup button{
+margin-top:18px;
+padding:10px 22px;
+border:none;
+border-radius:20px;
+background:#dc2626;
+color:white;
+cursor:pointer;
+}
+
+.envelope{
+font-size:120px;
+cursor:pointer;
+transition:0.4s;
+}
+
+.envelope:hover{
+transform:scale(1.08);
+}
+
+.letter{
+display:none;
+margin-top:30px;
+background:rgba(255,255,255,0.08);
+padding:30px;
+border-radius:30px;
+max-width:700px;
+line-height:1.9;
+font-size:18px;
+backdrop-filter:blur(10px);
+animation:fade 1s ease;
+}
+
+.signature{
+margin-top:25px;
+font-family:'Caveat',cursive;
+font-size:38px;
+color:#ffd166;
+}
+
+.credit{
+margin-top:18px;
+font-size:14px;
+opacity:0.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- FLOATING FLOWERS -->
+
+<script>
+for(let i=0;i<25;i++){
+let flower=document.createElement("div");
+flower.className="floating";
+flower.innerHTML=Math.random()>0.5?"🌻":"🌼";
+flower.style.left=Math.random()*100+"vw";
+flower.style.animationDuration=(6+Math.random()*10)+"s";
+flower.style.fontSize=(20+Math.random()*35)+"px";
+document.body.appendChild(flower);
+}
+</script>
+
+<!-- PAGE 1 -->
+
+<div class="page active" id="page1">
+
+<h1>Heyyoo Saumya 😭</h1>
+
+<p class="subtitle">
+Pass to guess karna padega 😋
+</p>
+
+<div class="pass-box">
+
+<input type="password" id="display" readonly>
+
+<div class="numpad">
+
+<button class="num">1</button>
+<button class="num">2</button>
+<button class="num">3</button>
+
+<button class="num">4</button>
+<button class="num">5</button>
+<button class="num">6</button>
+
+<button class="num">7</button>
+<button class="num">8</button>
+<button class="num">9</button>
+
+<button class="num">0</button>
+<button class="num" onclick="clearPass()">⌫</button>
+
+<button class="num enter" onclick="checkPass()">Unlock ✨</button>
+
+</div>
+
+<p class="hint">
+Hint: aapse related kuch hai suspense 🤭
+</p>
+
+</div>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="page" id="page2">
+
+<div class="glass">
+
+<div class="prank red">
+Aapka phone to maine hack kar liya hai hehe 👿
+</div>
+
+<p id="hackText">
+Accessing chats... photos... memes... 👀
+</p>
+
+</div>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page" id="page3">
+
+<h1>Saumya Garden 🌻</h1>
+
+<p class="subtitle">
+Flowers pe click kariye madam 😋
+</p>
+
+<div class="garden">
+
+<div class="flower" onclick="showPopup('Aap bohot sweet ho yaaar 😭<br><br>(seriously, kisi ki baat sunke kabhi doubt mat karna okay?)')">🌻</div>
+
+<div class="flower" onclick="showPopup('Bade chatpate ho yaaar 😭<br><br>Kabhi boring moment hi nahi aata baat karte karte 😋')">🌼</div>
+
+<div class="flower" onclick="showPopup('Bohot maza aata yaaar baat karke 😭<br><br>Vibe ekedum mast jamti hai hehe')">🌻</div>
+
+<div class="flower" onclick="showPopup('Loved your curly hairs btw 🤭<br><br>(had to say it somewhere okay 😭)')">🌼</div>
+
+<div class="flower" onclick="showPopup('Lafde chalu rakhna 😭<br><br>Band mat hone dena ye friendship, potential hai fr 😋')">🌻</div>
+
+<div class="flower" onclick="showPopup('Aisi natural aur fun vibe bohot kam milti hai honestly 😭<br><br>Please exactly aise hi rehna 🌼')">🌼</div>
+
+</div>
+
+<br><br>
+
+<button class="btn yes" onclick="nextPage(4)">
+Last surprise 😋
+</button>
+
+</div>
+
+<!-- PAGE 4 -->
+
+<div class="page" id="page4">
+
+<h1>One Last Thing ✨</h1>
+
+<div class="envelope" onclick="openLetter()">
+💌
+</div>
+
+<p class="small">
+From the person jo aapka phone hack karne ki koshish kar raha tha 😭
+</p>
+
+<div class="letter" id="letter">
+
+Heyyy Saumya 😭<br><br>
+
+I know mile bohot kam time hua hai but genuinely baat karne mai bohot bohot maza aata 😋  
+Bade chatpate se lage meko honestly 😂  
+Real life mai shayad itna bol bhi na paau but aap really bohot sweet ho 🌻<br><br>
+
+Aur haan... loved your curly hairs btw 🤭  
+Ye line kahi to bolni hi thi 😭<br><br>
+
+Bohot acchi vibe lagti hai yaaar honestly.  
+Random talks bhi fun ho jaati hai 😋  
+Aur lafde chalu rakhna please 😂<br><br>
+
+Ye purri website specially aapke liye hi design ki 😋<br><br>
+
+Keep smiling ☺️
+
+<div class="signature">
+— Devu ✨
+</div>
+
+</div>
+
+</div>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+<p id="popupText"></p>
+<button onclick="closePopup()">hehe okay 😭</button>
+</div>
+
+<script>
+
+let display=document.getElementById("display");
+
+document.querySelectorAll(".num").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+if(btn.innerText==="Unlock ✨" || btn.innerText==="⌫") return;
+
+if(display.value.length<4){
+display.value+=btn.innerText;
+}
+
+});
+
+});
+
+document.addEventListener("keydown",(e)=>{
+
+if(!isNaN(e.key)){
+if(display.value.length<4){
+display.value+=e.key;
+}
+}
+
+if(e.key==="Backspace"){
+display.value=display.value.slice(0,-1);
+}
+
+if(e.key==="Enter"){
+checkPass();
+}
+
+});
+
+function clearPass(){
+display.value=display.value.slice(0,-1);
+}
+
+function checkPass(){
+
+if(display.value==="3308"){
+
+nextPage(2);
+
+setTimeout(()=>{
+
+document.querySelector(".prank").innerHTML="Just kidding 😂";
+
+document.getElementById("hackText").innerHTML=`
+R u excited website aur explore karne ke liyeee 😝
+`;
+
+let choice=document.createElement("div");
+choice.className="choice";
+
+choice.innerHTML=`
+<button class="btn yes" onclick="nextPage(3)">Yes 😋</button>
+<button class="btn no" id="noBtn">No 😭</button>
+`;
+
+document.querySelector(".glass").appendChild(choice);
+
+let small=document.createElement("div");
+small.className="small";
+small.innerHTML="No dabao na 🤭";
+document.querySelector(".glass").appendChild(small);
+
+let noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+
+let x=Math.random()*300-150;
+let y=Math.random()*300-150;
+
+noBtn.style.transform=`translate(${x}px,${y}px)`;
+
+});
+
+},10000);
+
+}
+else{
+alert("Wrong password 😭");
+display.value="";
+}
+
+}
+
+function nextPage(page){
+
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active");
+});
+
+document.getElementById("page"+page).classList.add("active");
+
+}
+
+function showPopup(text){
+
+document.getElementById("popup").style.display="block";
+document.getElementById("popupText").innerHTML=text;
+
+}
+
+function closePopup(){
+
+document.getElementById("popup").style.display="none";
+
+}
+
+function openLetter(){
+
+document.getElementById("letter").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
